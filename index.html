@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delhi Street Food Explorer</title>
+    <link rel="stylesheet" href="style.css">
+        <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://cdn.pixabay.com/photo/2017/06/16/11/38/breakfast-2408818_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: #f0f0f0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: #d35400;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .food-places {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .place-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .place-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .place-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .place-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+        }
+
+        .place-name {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .place-content {
+            padding: 2rem;
+        }
+
+        .famous-foods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .food-item {
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .food-item:hover {
+            transform: scale(1.05);
+        }
+
+        .food-item::after {
+            content: '👁️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            font-size: 1.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .food-item:hover::after {
+            opacity: 1;
+        }
+
+        .food-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 0.5rem;
+            border: 3px solid #e74c3c;
+            transition: border-color 0.3s ease;
+        }
+
+        .food-item:hover .food-image {
+            border-color: #d35400;
+        }
+
+        .food-name {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 0;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        .modal-header {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+        }
+
+        .modal-title {
+            position: relative;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            padding: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            z-index: 1;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .close:hover {
+            transform: scale(1.2);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .food-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .food-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .detail-card:hover {
+            border-color: #e74c3c;
+            transform: translateY(-5px);
+        }
+
+        .detail-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .food-places {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style> -->
+</head>
+<body>
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Delhi Street Food Explorer</h1>
+            <p>Discover the authentic flavors of Delhi's bustling streets</p>
+        </div>
+    </div>
+
+    <!-- Food Detail Modals -->
+    <div id="foodModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" id="modalHeader">
+                <div class="modal-overlay"></div>
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 class="modal-title" id="modalTitle"></h2>
+            </div>
+            <div class="modal-body">
+                <p class="food-description" id="modalDescription"></p>
+                <div class="food-details" id="modalDetails"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Famous Street Food Destinations</h2>
+        
+        <div class="food-places" id="foodPlaces">
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://www.thestatesman.com/wp-content/uploads/2021/09/QT-chandni-chowk-fountain-2.jpg');">
+                    <div class="place-overlay">
+                        <h3 class="place-name">Chandni Chowk</h3>
+                    </div>
+                </div>
+                <div class="place-content">
+                    <div class="famous-foods">
+                        <div class="food-item" onclick="openFoodModal('paranthe')">
+                            <img src="https://img.freepik.com/premium-photo/aloo-paratha-from-india-white-background-concept-indian-cuisine-aloo-paratha-white-background-food-photography-traditional-dish_864588-90149.jpg?w=1480" alt="Paranthe" class="food-image">
+                            <div class="food-name">Paranthe</div>
+                        </div>
+                        <div class="food-item" onclick="openFoodModal('jalebi')">
+                            <img src="https://wallpaperaccess.com/full/8089728.jpg" alt="Jalebi" class="food-image">
+                            <div class="food-name">Jalebi</div>
+                        </div>
+                        <div class="food-item" onclick="openFoodModal('samosa')">
+                            <img src="https://foodiemag.co.za/wp-content/uploads/2023/06/deep-fried-samosas-dumplings-gourmet-appetizer-generated-by-ai-scaled.jpg" alt="Samosa" class="food-image">
+                            <div class="food-name">Samosa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://assets.zeezest.com/blogs/PROD_B_1675849271740_thumb_1000.jpeg');">
+                    <div class="place-overlay">
+                        <h3 class="place-name">Khan Market</h3>
+                    </div>
+                </div>
+                <div class="place-content">
+                    <div class="famous-foods">
+                        <div class="food-item" onclick="openFoodModal('momos')">
+                            <img src="https://buddymantra.com/wp-content/uploads/2020/08/6f981e5c-tandoori-momos-nazims-gurgaon-scaled.jpg" alt="Momos" class="food-image">
+                            <div class="food-name">Momos</div>
+                        </div>
+                        <div class="food-item" onclick="openFoodModal('kathi-rolls')">
+                            <img src="https://www.scrumptiously.com/wp-content/uploads/2024/06/ChickenKathiRoll.webp" alt="Rolls" class="food-image">
+                            <div class="food-name">Kathi Rolls</div>
+                        </div>
+                        <div class="food-item" onclick="openFoodModal('kulfi')">
+                            <img src="https://platinitwithwendy.com/wp-content/uploads/2023/05/DSC_2223-1-1920x1280.jpeg" alt="Kulfi" class="food-image">
+                            <div class="food-name">Kulfi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://i.ytimg.com/vi/fIClEEz1L4I/maxresdefault.jpg');">
+                    <div class="place-overlay">
+                        <h3 class="place-name">Karim's (Jama Masjid)</h3>
+                    </div>
+                </div>
+                <div class="place-content">
+                    <div class="famous-foods">
+                        <div class="food-item" onclick="openFoodModal('seekh-kebab')">
+                            <img src="https://cdn.pixabay.com/photo/2018/07/18/19/12/beef-3547078_1280.jpg" alt="Kebab" class="food-image">
+                            <div class="food-name">Seekh Kebab</div>
+                        </div>
+                        <div class="food-item" onclick="openFoodModal('biryani')">
+                            <img src="https://www.thespruceeats.com/thmb/SalyKjzBU-K1Bv-FTFWnbd6ckjY=/2121x1414/filters:fill(auto,1)/GettyImages-639704020-5c4a63ecc9e77c00017bfebf.jpg" alt="Biryani" class="food-image">
+                            <div class="food-name">Biryani</div>
+                        </div>
+                        <div class="food-item" onclick="openFoodModal('nihari')">
+                            <img src="https://migrationology.com/wp-content/uploads/2018/11/nihari-lahore.jpg" alt="Nihari" class="food-image">
+                            <div class="food-name">Nihari</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://delhitourism.travel/images/tourist-places/lajpat-nagar-market-delhi/lajpat-nagar-market-delhi-tourism-entry-ticket-price.jpg');">
+                    <div class="place-overlay">
+                        <h3 class="place-name">Lajpat Nagar</h3>
+                    </div>
+                </div>
+                <div class="place-content">
+                    <div class="famous-foods">
+                        <div class="food-item">
+                            <img src="https://www.yummyoyummy.com/wp-content/uploads/2016/09/Bhel-puri2.jpg" alt="Chaat" class="food-image">
+                            <div class="food-name">Bhel Puri</div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Aloo Tikki" class="food-image">
+                            <div class="food-name">Aloo Tikki</div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Golgappa" class="food-image">
+                            <div class="food-name">Golgappa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="place-overlay">
+                        <h3 class="place-name">Daryaganj</h3>
+                    </div>
+                </div>
+                <div class="place-content">
+                    <div class="famous-foods">
+                        <div class="food-item">
+                            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Butter Chicken" class="food-image">
+                            <div class="food-name">Butter Chicken</div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Naan" class="food-image">
+                            <div class="food-name">Naan</div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Lassi" class="food-image">
+                            <div class="food-name">Lassi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="place-overlay">
+                        <h3 class="place-name">Sarojini Nagar</h3>
+                    </div>
+                </div>
+                <div class="place-content">
+                    <div class="famous-foods">
+                        <div class="food-item">
+                            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Chole Bhature" class="food-image">
+                            <div class="food-name">Chole Bhature</div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Rajma Chawal" class="food-image">
+                            <div class="food-name">Rajma Chawal</div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://images.unsplash.com/photo-1628294895950-9805252327bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Pav Bhaji" class="food-image">
+                            <div class="food-name">Pav Bhaji</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Food data for modals
+        const foodData = {
+            'paranthe': {
+                title: 'Paranthe Wali Gali Special',
+                image: 'https://img.freepik.com/premium-photo/aloo-paratha-from-india-white-background-concept-indian-cuisine-aloo-paratha-white-background-food-photography-traditional-dish_864588-90149.jpg?w=1480',
+                description: 'Famous stuffed flatbreads from the historic Paranthe Wali Gali in Chandni Chowk. These golden, crispy paranthas are stuffed with various fillings and served with tangy pickles, yogurt, and traditional accompaniments.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Pt. Gaya Prasad Shiv Charan' },
+                    { icon: '💰', label: 'Price Range', value: '₹30 - ₹80' },
+                    { icon: '🕒', label: 'Best Time', value: '8 AM - 11 AM' },
+                    { icon: '🌶️', label: 'Spice Level', value: 'Medium' }
+                ]
+            },
+            'jalebi': {
+                title: 'Crispy Golden Jalebi',
+                image: 'https://wallpaperaccess.com/full/8089728.jpg',
+                description: 'Spiral-shaped sweet treat made from deep-fried batter, soaked in sugar syrup. Best enjoyed hot and crispy from Old Delhi\'s traditional sweet shops.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Old Famous Jalebi Wala' },
+                    { icon: '💰', label: 'Price Range', value: '₹40 - ₹100/kg' },
+                    { icon: '🕒', label: 'Best Time', value: '9 AM - 6 PM' },
+                    { icon: '🍯', label: 'Sweetness', value: 'Very Sweet' }
+                ]
+            },
+            'samosa': {
+                title: 'Crispy Delhi Samosa',
+                image: 'https://foodiemag.co.za/wp-content/uploads/2023/06/deep-fried-samosas-dumplings-gourmet-appetizer-generated-by-ai-scaled.jpg',
+                description: 'Triangular pastry filled with spiced potatoes, peas, and sometimes meat. A popular street snack served with mint and tamarind chutneys.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Jung Bahadur Kachori Wala' },
+                    { icon: '💰', label: 'Price Range', value: '₹10 - ₹25' },
+                    { icon: '🕒', label: 'Best Time', value: '4 PM - 8 PM' },
+                    { icon: '🌶️', label: 'Spice Level', value: 'Medium to Hot' }
+                ]
+            },
+            'momos': {
+                title: 'Steamed Tibetan Momos',
+                image: 'https://buddymantra.com/wp-content/uploads/2020/08/6f981e5c-tandoori-momos-nazims-gurgaon-scaled.jpg',
+                description: 'Delicate steamed dumplings filled with vegetables or meat, served with spicy red chutney. A popular Tibetan dish that has become a Delhi favorite.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Majnu Ka Tilla' },
+                    { icon: '💰', label: 'Price Range', value: '₹50 - ₹120' },
+                    { icon: '🕒', label: 'Best Time', value: '5 PM - 10 PM' },
+                    { icon: '🌶️', label: 'Spice Level', value: 'Medium to Hot' }
+                ]
+            },
+            'kathi-rolls': {
+                title: 'Khan Market Kathi Rolls',
+                image: 'https://www.scrumptiously.com/wp-content/uploads/2024/06/ChickenKathiRoll.webp',
+                description: 'Flaky paratha wrapped around spiced kebabs, vegetables, and chutneys. Originally from Kolkata but perfected by Delhi street vendors.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Nizam\'s Kathi Kabab' },
+                    { icon: '💰', label: 'Price Range', value: '₹80 - ₹150' },
+                    { icon: '🕒', label: 'Best Time', value: '6 PM - 11 PM' },
+                    { icon: '🌶️', label: 'Spice Level', value: 'Medium' }
+                ]
+            },
+            'kulfi': {
+                title: 'Traditional Kulfi',
+                image: 'https://platinitwithwendy.com/wp-content/uploads/2023/05/DSC_2223-1-1920x1280.jpeg',
+                description: 'Dense, creamy frozen dessert made from reduced milk, flavored with cardamom, saffron, and pistachios. Served on sticks or in earthen pots.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Kuremal Mohan Lal Kulfi' },
+                    { icon: '💰', label: 'Price Range', value: '₹30 - ₹80' },
+                    { icon: '🕒', label: 'Best Time', value: '12 PM - 10 PM' },
+                    { icon: '🥛', label: 'Base', value: 'Pure Milk' }
+                ]
+            },
+            'seekh-kebab': {
+                title: 'Karim\'s Seekh Kebab',
+                image: 'https://cdn.pixabay.com/photo/2018/07/18/19/12/beef-3547078_1280.jpg',
+                description: 'Succulent minced meat skewers grilled to perfection with aromatic spices. A signature dish from the legendary Karim\'s restaurant established in 1913.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Karim\'s Jama Masjid' },
+                    { icon: '💰', label: 'Price Range', value: '₹120 - ₹200' },
+                    { icon: '🕒', label: 'Best Time', value: '7 PM - 11 PM' },
+                    { icon: '🌶️', label: 'Spice Level', value: 'Medium to Hot' }
+                ]
+            },
+            'biryani': {
+                title: 'Karim\'s Special Biryani',
+                image: 'https://www.thespruceeats.com/thmb/SalyKjzBU-K1Bv-FTFWnbd6ckjY=/2121x1414/filters:fill(auto,1)/GettyImages-639704020-5c4a63ecc9e77c00017bfebf.jpg',
+                description: 'Fragrant basmati rice layered with tender meat and aromatic spices, slow-cooked in sealed pots. A royal dish with Persian origins.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Karim\'s & Al Jawahar' },
+                    { icon: '💰', label: 'Price Range', value: '₹200 - ₹400' },
+                    { icon: '🕒', label: 'Best Time', value: '12 PM - 3 PM, 7 PM - 11 PM' },
+                    { icon: '🌿', label: 'Specialty', value: 'Dum Cooked' }
+                ]
+            },
+            'nihari': {
+                title: 'Slow-Cooked Nihari',
+                image: 'https://migrationology.com/wp-content/uploads/2018/11/nihari-lahore.jpg',
+                description: 'Rich, spicy stew made with tender meat slow-cooked overnight with aromatic spices. Traditionally eaten for breakfast with naan.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Kallu Nihari' },
+                    { icon: '💰', label: 'Price Range', value: '₹150 - ₹300' },
+                    { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
+                    { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
+                ]
+            },
+            'bhel-puri': {
+                title: 'Tasty Bhel-Puri',
+                image: 'https://www.yummyoyummy.com/wp-content/uploads/2016/09/Bhel-puri2.jpg',
+                description: 'Rich, spicy stew made with tender meat slow-cooked overnight with aromatic spices. Traditionally eaten for breakfast with naan.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Kallu Nihari' },
+                    { icon: '💰', label: 'Price Range', value: '₹150 - ₹300' },
+                    { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
+                    { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
+                ]
+            }
+        };
+
+        function openFoodModal(foodId) {
+            const food = foodData[foodId];
+            if (!food) return;
+
+            const modal = document.getElementById('foodModal');
+            const modalHeader = document.getElementById('modalHeader');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalDetails = document.getElementById('modalDetails');
+
+            // Set header background
+            modalHeader.style.backgroundImage = `url('${food.image}')`;
+            
+            // Set content
+            modalTitle.textContent = food.title;
+            modalDescription.textContent = food.description;
+            
+            // Clear and populate details
+            modalDetails.innerHTML = '';
+            food.details.forEach(detail => {
+                const detailCard = document.createElement('div');
+                detailCard.className = 'detail-card';
+                detailCard.innerHTML = `
+                    <div class="detail-icon">${detail.icon}</div>
+                    <div class="detail-label">${detail.label}</div>
+                    <div class="detail-value">${detail.value}</div>
+                `;
+                modalDetails.appendChild(detailCard);
+            });
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('foodModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('foodModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all place cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.place-card');
+            
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // Add pulse animation to random food items
+            setInterval(() => {
+                const foodImages = document.querySelectorAll('.food-image');
+                const randomImage = foodImages[Math.floor(Math.random() * foodImages.length)];
+                randomImage.classList.add('pulse');
+                
+                setTimeout(() => {
+                    randomImage.classList.remove('pulse');
+                }, 2000);
+            }, 3000);
+
+            // Smooth scroll for better UX
+            document.documentElement.style.scrollBehavior = 'smooth';
+        });
+
+        // Add hover effects for food items
+        document.querySelectorAll('.food-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'scale(1.05) rotate(2deg)';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+    </script>
+</body> 
+</html>
