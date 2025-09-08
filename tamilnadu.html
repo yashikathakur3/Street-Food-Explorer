@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Nadu Street Food Explorer</title>
+    <link rel="stylesheet" href="tamil.css">
+        
+</head>
+<body>
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Tamil Nadu Street Food Explorer</h1>
+            <p>Discover the authentic flavors of Tamil Nadu's bustling streets</p>
+        </div>
+    </div>
+
+    <!-- Food Detail Modals -->
+    <div id="foodModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" id="modalHeader">
+                <div class="modal-overlay"></div>
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 class="modal-title" id="modalTitle"></h2>
+            </div>
+            <div class="modal-body">
+                <p class="food-description" id="modalDescription"></p>
+                <div class="food-details" id="modalDetails"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Famous Street Food Destinations</h2>
+        
+        <div class="food-places" id="foodPlaces">
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://www.tamilnadutourism.com/images/chennai/card/marina-beach.jpg ');">
+                    <div class="place-overlay">
+                        <h3 class="place-name">Marina Beach,Chennai</h3>
+                    </div>
+                </div>
+                <div class="place-content">
+                    <div class="famous-foods">
+                        <div class="food-item" onclick="openFoodModal('sundul')">
+                            <img src="https://img.freepik.com/premium-photo/aloo-paratha-from-india-white-background-concept-indian-cuisine-aloo-paratha-white-background-food-photography-traditional-dish_864588-90149.jpg?w=1480" alt="Paranthe" class="food-image">
+                            <div class="food-name">Sundul</div>
+                        </div>
+                        <div class="food-item" onclick="openFoodModal('murukku')">
+                            <img src="https://traditionallymodernfood.com/wp-content/uploads/2022/10/poondu-murukku-garlic-murukku-35-scaled.jpeg" alt="murukku" class="food-image">
+                            <div class="food-name">Murukku</div>
+                        </div>
+                        <div class="food-item" onclick="openFoodModal('bhajji')">
+                            <img src="https://rakskitchen.net/wp-content/uploads/-000//1/10590086154_1f14c0af56_z.jpg" alt="bhajji" class="food-image">
+                            <div class="food-name">Bhajji</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/71/bf/0e/madurai-meenakshi-temple.jpg?w=1000&h=1000&s=1');">
+                    <div class="place-overlay">
+                        <h3 class="place-name">Madurai Streets</h3>
+                    </div>
+                </div>
+                <div class="place-content">
+                    <div class="famous-foods">
+                        <div class="food-item" onclick="openFoodModal('Jigarthanda')">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Jigarthanda.JPG/1200px-Jigarthanda.JPG" alt="Jigarthanda" class="food-image">
+                            <div class="food-name">Jigarthanda</div>
+                        </div>
+                        <div class="food-item" onclick="openFoodModal('Parotta')">
+                            <img src="https://c.ndtvimg.com/2021-05/tj7sdqj8_parotta_625x300_14_May_21.jpg?im=FeatureCrop,algorithm=dnn,width=1200,height=675" alt="Parotta" class="food-image">
+                            <div class="food-name">Parotta</div>
+                        </div>
+                        <div class="food-item" onclick="openFoodModal('Kari Dosa')">
+                            <img src="https://images.squarespace-cdn.com/content/v1/578753d7d482e9c3a909de40/1638949721743-CB9CAXY9K8SSIV9K6FYO/WhatsApp+Image+2021-12-08+at+1.14.56+PM.jpeg" alt="Kari Dosa" class="food-image">
+                            <div class="food-name">Kari Dosa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/CHIL_SEZ.jpg/960px-CHIL_SEZ.jpg');">
+                    <div class="place-overlay">
+                        <h3 class="place-name">Coimbatore Street Food</h3>
+                    </div>
+                </div>
+                <div class="place-content">
+                    <div class="famous-foods">
+                        <div class="food-item" onclick="openFoodModal('Kozhi Porichathu')">
+                            <img src="https://www.sashirecipes.com/wp-content/uploads/2012/10/Dry-Chicken-Fry.jpg" alt="Kozhi Porichathu" class="food-image">
+                            <div class="food-name">Kozhi Porichathu</div>
+                        </div>
+                        <div class="food-item" onclick="openFoodModal('Thatte-idli')">
+                            <img src="https://img.onmanorama.com/content/dam/mm/en/food/foodie/images/2020/10/12/idli-tamil-nadu.jpg/photos/4x3/photo.jpg" alt="Thatte Idli" class="food-image">
+                            <div class="food-name">Thatte Idli</div>
+                        </div>
+                        <div class="food-item" onclick="openFoodModal('Filter Coffee')">
+                            <img src="https://static.toiimg.com/thumb/msid-108018037,width-1280,height-720,resizemode-4/108018037.jpg" alt="Filter Coffee" class="food-image">
+                            <div class="food-name">Filter Coffee</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://s3.india.com/wp-content/uploads/2024/05/Feature-Image_-Tiruchirappalli-2.jpg?impolicy=Medium_Widthonly&w=350&h=263');">
+                    <div class="place-overlay">
+                        <h3 class="place-name">Tiruchillapalli</h3>
+                    </div>
+                </div>
+                <div class="place-content">
+                    <div class="famous-foods">
+                        <div class="food-item">
+                            <img src="https://c.ndtvimg.com/r0fobft8_rasam_625x300_24_July_18.jpg" alt="Rasam" class="food-image">
+                            <div class="food-name">Rasam</div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGMtbRXnz9UN23SfMRtcRMKmqAx1lcPmzpKQ&s" alt="Kalyana Biriyani" class="food-image">
+                            <div class="food-name">Kalyana Biriyani</div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://traditionallymodernfood.com/wp-content/uploads/2024/08/thavala-vadai-mixed-lentil-fritter-29.jpeg" alt="Thavala Vadai" class="food-image">
+                            <div class="food-name">Thavala Vadai</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://blogs.pathbeat.in/wp-content/uploads/2024/05/rameswaram-temple-1656167436_f2c551193bb7d4bc6f70.webp');">
+                    <div class="place-overlay">
+                        <h3 class="place-name">Rameshwaram</h3>
+                    </div>
+                </div>
+                <div class="place-content">
+                    <div class="famous-foods">
+                        <div class="food-item">
+                            <img src="https://images.archanaskitchen.com/images/recipe-collection/recipe-collections/Yella_Sapad_Banana_leaf_with_dal_vada_payasam_sambar_aloo_roast_cabbage_poriyal_rasam_3_0ea1da876f.jpg" alt="Elai Sappadu" class="food-image">
+                            <div class="food-name">Elai Sappadu</div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZIWqCsicGYoNN39SB86aLdYBgFVoNIW-Swg&s" alt="Fish Curry" class="food-image">
+                            <div class="food-name">Fish Curry</div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://www.cookwithkushi.com/wp-content/uploads/2022/09/best_sweet_pongal_sakkarai_chakkara_pongal_recipe.jpg" alt="Sweet Pongal" class="food-image">
+                            <div class="food-name">Sweet Pongal</div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="place-card">
+                <div class="place-image" style="background-image: url('https://www.dailypioneer.com/uploads/2025/story/images/big/chettinad--unleashing-the-ghosts-of-imagination-2025-02-16.jpg');">
+                    <div class="place-overlay">
+                        <h3 class="place-name">Chettinad</h3>
+                    </div>
+                </div>
+                <div class="place-content">
+                    <div class="famous-foods">
+                        <div class="food-item">
+                            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Chole Bhature" class="food-image">
+                            <div class="food-name">Chettinad Chicken Curry</div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://i0.wp.com/binjalsvegkitchen.com/wp-content/uploads/2019/01/Kuzhi-Paniyaram-H2.jpg?resize=600%2C900&ssl=1" alt="Rajma Chawal" class="food-image">
+                            <div class="food-name">Kuzhi Paniyaram</div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo94pMt-oJJ1YxvIf3_VW3BWb0WQVxo4NXzA&s" alt="Pav Bhaji" class="food-image">
+                            <div class="food-name">Sevai</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Food data for modals
+        const foodData = {
+            'sundul': {
+                title: 'Marina Beach Sundal',
+                image: 'https://img.freepik.com/premium-photo/aloo-paratha-from-india-white-background-concept-indian-cuisine-aloo-paratha-white-background-food-photography-traditional-dish_864588-90149.jpg?w=1480',
+                description: 'A healthy and tangy beachside snack made with boiled chickpeas, grated coconut, raw mango, and a dash of spices. Famous at Marina Beach, it is enjoyed fresh by locals and tourists alike.',
+                details: [
+                      { icon: '📍', label: 'Best Place', value: 'Marina Beach, Chennai' },
+                      { icon: '💰', label: 'Price Range', value: '₹20 - ₹50' },
+                      { icon: '⏰', label: 'Best Time', value: 'Evenings at the beach' },
+                      { icon: '🌶️', label: 'Spice Level', value: 'Mild & Tangy' }
+                ]
+            },
+            'murukku': {
+                title: 'Crispy Murukku',
+                image: 'https://wallpaperaccess.com/full/8089728.jpg',
+                description: 'Crunchy South Indian snack made from rice flour and urad dal flour.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Marina Beach shops' },
+                    { icon: '💰', label: 'Price Range', value: '₹20 - ₹50' },
+                    { icon: '🕒', label: 'Best Time', value: 'Evenings' },
+                    { icon: '🍯', label: 'Sweetness', value: 'Mild' }
+                ]
+            },
+            'bhajji': {
+                title: 'Hot Bhajji',
+                image: 'https://foodiemag.co.za/wp-content/uploads/2023/06/deep-fried-samosas-dumplings-gourmet-appetizer-generated-by-ai-scaled.jpg',
+                description: 'Deep-fried fritters made with vegetables and gram flour.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Chennai Marina Beach stalls' },
+                    { icon: '💰', label: 'Price Range', value: '₹15 - ₹45' },
+                    { icon: '🕒', label: 'Best Time', value: 'Rainy Evenings' },
+                    { icon: '🌶️', label: 'Spice Level', value: 'Medium to Hot' }
+                ]
+            },
+            'jigarthanda': {
+                title: 'Famous Jigarthanda',
+                image: 'https://buddymantra.com/wp-content/uploads/2020/08/6f981e5c-tandoori-momos-nazims-gurgaon-scaled.jpg',
+                description: 'Madurai special cold beverage made with milk, badam pisin, and ice cream.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Famous Jigarthanda Shop, Madurai' },
+                    { icon: '💰', label: 'Price Range', value: '₹40 - ₹70' },
+                    { icon: '🕒', label: 'Best Time', value: 'Hot Afternoons' },
+                    { icon: '🌶️', label: 'Spice Level', value: 'High' }
+                ]
+            },
+            'parotta': {
+                title: 'Layered Parotta',
+                image: 'https://www.scrumptiously.com/wp-content/uploads/2024/06/ChickenKathiRoll.webp',
+                description: 'Flaky layered flatbread popular across Tamil Nadu.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Madurai Street stalls' },
+                    { icon: '💰', label: 'Price Range', value: '₹20 - ₹60' },
+                    { icon: '🕒', label: 'Best Time', value: '6 PM - 11 PM' },
+                    { icon: '🌶️', label: 'Spice Level', value: 'Mild' }
+                ]
+            },
+            'kari-dosa': {
+                title: 'kari-dosa',
+                image: 'https://platinitwithwendy.com/wp-content/uploads/2023/05/DSC_2223-1-1920x1280.jpeg',
+                description: 'Soft dosa topped with spicy mutton curry, famous in Madurai.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Madurai Konar Mess' },
+                    { icon: '💰', label: 'Price Range', value: '₹80 - ₹150' },
+                    { icon: '🕒', label: 'Best Time', value: 'Dinner & Late Night' },
+                    { icon: '🥛', label: 'Base', value: 'High' }
+                ]
+            },
+            'Kozhi Porichathu': {
+                title: 'Kozhi Porichathu',
+                image: 'https://cdn.pixabay.com/photo/2018/07/18/19/12/beef-3547078_1280.jpg',
+                description: 'A spicy deep-fried chicken dish, crispy outside and juicy inside, famous across Tamil Nadu.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Chettinad region & Chennai hotels' },
+                    { icon: '💰', label: 'Price Range', value: '₹120 - ₹250' },
+                    { icon: '🕒', label: 'Best Time', value: 'Lunch / Dinner' },
+                    { icon: '🌶️', label: 'Spice Level', value: 'High' }
+                ]
+            },
+            'thatte-idli': {
+                title: 'thatte-idli',
+                image: 'https://www.thespruceeats.com/thmb/SalyKjzBU-K1Bv-FTFWnbd6ckjY=/2121x1414/filters:fill(auto,1)/GettyImages-639704020-5c4a63ecc9e77c00017bfebf.jpg',
+                description: 'Large, soft and spongy idlis steamed on plates, served with chutney and sambar.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Coimbatore & Madurai' },
+                    { icon: '💰', label: 'Price Range', value: '₹30 - ₹60' },
+                    { icon: '🕒', label: 'Best Time', value: 'Breakfast' },
+                    { icon: '🌿', label: 'Specialty', value: 'With chutney & sambar' }
+                ]
+            },
+            'Filter Coffee': {
+                title: 'South Indian Filter Coffee',
+                image: 'https://migrationology.com/wp-content/uploads/2018/11/nihari-lahore.jpg',
+                description: 'Aromatic decoction coffee blended with hot milk, served in a tumbler-dabara set.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Chennai Coffee Houses' },
+                    { icon: '💰', label: 'Price Range', value: '₹20 - ₹50' },
+                    { icon: '🕒', label: 'Best Time', value: 'Morning & Evening' },
+                    { icon: '🔥', label: 'Cooking', value: 'Strong' }
+                ]
+            },
+            'rasam': {
+                title: 'Spicy Rasam',
+                image: 'https://www.yummyoyummy.com/wp-content/uploads/2016/09/Bhel-puri2.jpg',
+                description: 'A spicy, tangy South Indian soup made with tamarind, pepper, and spices, served with rice.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Tamil Nadu Homes & Mess' },
+                    { icon: '💰', label: 'Price Range', value: '₹30 - ₹70' },
+                    { icon: '🕒', label: 'Best Time', value: 'Lunch' },
+                    { icon: '🔥', label: 'Cooking', value: 'Medium - High' }
+                ]
+            }
+        };
+
+        function openFoodModal(foodId) {
+            const food = foodData[foodId];
+            if (!food) return;
+
+            const modal = document.getElementById('foodModal');
+            const modalHeader = document.getElementById('modalHeader');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalDetails = document.getElementById('modalDetails');
+
+            // Set header background
+            modalHeader.style.backgroundImage = `url('${food.image}')`;
+            
+            // Set content
+            modalTitle.textContent = food.title;
+            modalDescription.textContent = food.description;
+            
+            // Clear and populate details
+            modalDetails.innerHTML = '';
+            food.details.forEach(detail => {
+                const detailCard = document.createElement('div');
+                detailCard.className = 'detail-card';
+                detailCard.innerHTML = `
+                    <div class="detail-icon">${detail.icon}</div>
+                    <div class="detail-label">${detail.label}</div>
+                    <div class="detail-value">${detail.value}</div>
+                `;
+                modalDetails.appendChild(detailCard);
+            });
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('foodModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('foodModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all place cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.place-card');
+            
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // Add pulse animation to random food items
+            setInterval(() => {
+                const foodImages = document.querySelectorAll('.food-image');
+                const randomImage = foodImages[Math.floor(Math.random() * foodImages.length)];
+                randomImage.classList.add('pulse');
+                
+                setTimeout(() => {
+                    randomImage.classList.remove('pulse');
+                }, 2000);
+            }, 3000);
+
+     // Smooth scroll for better UX
+            document.documentElement.style.scrollBehavior = 'smooth';
+        });
+
+        // Add hover effects for food items
+        document.querySelectorAll('.food-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'scale(1.05) rotate(2deg)';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+    </script>
+</body> 
+</html>

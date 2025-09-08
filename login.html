@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Street Food Explorer - Login</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('https://images.unsplash.com/photo-1543353071-087092ec393a') no-repeat center center/cover;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.92); /* slightly transparent */
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      width: 350px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .form-group input:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0,123,255,0.5);
+    }
+
+    .error-message {
+      color: red;
+      font-size: 13px;
+      margin: 8px 0;
+      display: none;
+    }
+
+    .success-message {
+      color: green;
+      font-size: 13px;
+      margin: 8px 0;
+      display: none;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    .options {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .options a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .options a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login</h2>
+
+    <div class="form-group">
+      <label for="usernameEmail">Username or Email</label>
+      <input type="text" id="usernameEmail" placeholder="Enter username or email">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password">
+    </div>
+
+    <p class="error-message" id="errorMessage">Incorrect username/email or password</p>
+    <p class="success-message" id="successMessage">Login successful!</p>
+
+    <button class="btn" onclick="validateLogin()">Login</button>
+
+    <div class="options">
+      <a href="#">Forgot Password?</a> | <a href="signup.html">Sign Up</a>
+    </div>
+  </div>
+
+  <script>
+    function validateLogin() {
+      const usernameEmail = document.getElementById("usernameEmail").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorMessage = document.getElementById("errorMessage");
+      const successMessage = document.getElementById("successMessage");
+
+      // Example test credentials (you can replace later with DB check)
+      const testUsername = "foodie123";
+      const testEmail = "foodie@example.com";
+      const testPassword = "streetfood";
+
+      errorMessage.style.display = "none";
+      successMessage.style.display = "none";
+
+      if (usernameEmail === "" || password === "") {
+        errorMessage.textContent = "Please fill out all fields";
+        errorMessage.style.display = "block";
+        return;
+      }
+
+      if ((usernameEmail === testUsername || usernameEmail === testEmail) && password === testPassword) {
+        successMessage.style.display = "block";
+      } else {
+        errorMessage.textContent = "Incorrect username/email or password";
+        errorMessage.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>

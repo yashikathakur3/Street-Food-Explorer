@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Street Food Explorer - Sign Up</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK-FlwMFB0qIHZ31LO7P80eM-0-wse5kbofA&s') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .signup-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;  
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      width: 350px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #0a5343;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      text-align: left;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #0a5343;
+      outline: none;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #777;
+      text-align: left;
+      margin-top: -14px;
+      margin-bottom: 12px;
+      display: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #0a5343;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #08735c;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" required>
+      <div id="usernameHint" class="hint">8–14 characters, letters & numbers only</div>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required>
+      <div id="passwordHint" class="hint">8–14 characters, must include uppercase, lowercase, number & symbol</div>
+
+      <label for="confirm">Confirm Password</label>
+      <input type="password" id="confirm" required>
+
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <script>
+    const username = document.getElementById("username");
+    const usernameHint = document.getElementById("usernameHint");
+    const password = document.getElementById("password");
+    const passwordHint = document.getElementById("passwordHint");
+    const confirmPassword = document.getElementById("confirm");
+    const form = document.getElementById("signupForm");
+
+    // Username validation hint
+    username.addEventListener("input", () => {
+      usernameHint.style.display = "block";
+    });
+
+    // Password validation hint
+    password.addEventListener("input", () => {
+      passwordHint.style.display = "block";
+    });
+
+    // Form validation
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const usernameRegex = /^[A-Za-z0-9]{8,14}$/;
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,14}$/;
+
+      if (!usernameRegex.test(username.value)) {
+        alert("Username must be 8-14 characters and contain only letters and numbers.");
+        return;
+      }
+
+      if (!passwordRegex.test(password.value)) {
+        alert("Password must be 8-14 characters and include uppercase, lowercase, number, and special character.");
+        return;
+      }
+
+      if (password.value !== confirmPassword.value) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      alert("Sign up successful 🎉");
+      form.reset();
+      usernameHint.style.display = "none";
+      passwordHint.style.display = "none";
+    });
+  </script>
+</body>
+</html>
