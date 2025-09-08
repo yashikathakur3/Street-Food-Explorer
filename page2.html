@@ -5,349 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delhi Street Food Explorer</title>
     <link rel="stylesheet" href="page2.css">
-        <!-- <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .hero-section {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://cdn.pixabay.com/photo/2017/06/16/11/38/breakfast-2408818_1280.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            color: white;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            color: #f0f0f0;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            color: #d35400;
-            margin-bottom: 3rem;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .food-places {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .place-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            animation: slideInUp 0.6s ease-out;
-        }
-
-        .place-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .place-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .place-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
-            display: flex;
-            align-items: flex-end;
-            padding: 1rem;
-        }
-
-        .place-name {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-        }
-
-        .place-content {
-            padding: 2rem;
-        }
-
-        .famous-foods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-        }
-
-        .food-item {
-            text-align: center;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .food-item:hover {
-            transform: scale(1.05);
-        }
-
-        .food-item::after {
-            content: '👁️';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            font-size: 1.5rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .food-item:hover::after {
-            opacity: 1;
-        }
-
-        .food-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 0.5rem;
-            border: 3px solid #e74c3c;
-            transition: border-color 0.3s ease;
-        }
-
-        .food-item:hover .food-image {
-            border-color: #d35400;
-        }
-
-        .food-name {
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background: white;
-            margin: 5% auto;
-            padding: 0;
-            width: 90%;
-            max-width: 600px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            animation: modalSlideIn 0.3s ease-out;
-        }
-
-        .modal-header {
-            height: 250px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            display: flex;
-            align-items: flex-end;
-        }
-
-        .modal-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
-        }
-
-        .modal-title {
-            position: relative;
-            color: white;
-            font-size: 2.5rem;
-            font-weight: bold;
-            padding: 2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            z-index: 1;
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            transition: transform 0.3s ease;
-        }
-
-        .close:hover {
-            transform: scale(1.2);
-        }
-
-        .modal-body {
-            padding: 2rem;
-        }
-
-        .food-description {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 1.5rem;
-        }
-
-        .food-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .detail-card {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .detail-card:hover {
-            border-color: #e74c3c;
-            transform: translateY(-5px);
-        }
-
-        .detail-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .detail-label {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .detail-value {
-            color: #e74c3c;
-            font-weight: bold;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .food-places {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style> -->
+        
 </head>
 <body>
     <div class="hero-section">
@@ -433,7 +91,7 @@
                 <div class="place-content">
                     <div class="famous-foods">
                         <div class="food-item" onclick="openFoodModal('seekh-kebab')">
-                            <img src="https://cdn.pixabay.com/photo/2018/07/18/19/12/beef-3547078_1280.jpg" alt="Kebab" class="food-image">
+                            <img src="https://cluecoded.com/wp-content/uploads/2024/09/seekh-kabab.jpg" alt="Kebab" class="food-image">
                             <div class="food-name">Seekh Kebab</div>
                         </div>
                         <div class="food-item" onclick="openFoodModal('biryani')">
@@ -456,16 +114,16 @@
                 </div>
                 <div class="place-content">
                     <div class="famous-foods">
-                        <div class="food-item">
-                            <img src="https://www.yummyoyummy.com/wp-content/uploads/2016/09/Bhel-puri2.jpg" alt="Chaat" class="food-image">
+                        <div class="food-item" onclick="openFoodModal('Bhel Puri')">
+                            <img src="https://www.indianveggiedelight.com/wp-content/uploads/2017/03/bhel-puri-featured.jpg" alt="Chaat" class="food-image">
                             <div class="food-name">Bhel Puri</div>
                         </div>
-                        <div class="food-item">
-                            <img src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Aloo Tikki" class="food-image">
+                        <div class="food-item" onclick="openFoodModal('Aloo Tikki')">
+                            <img src="https://cdn.cdnparenting.com/articles/2020/01/26120549/Aloo-tikki-recipe.jpg" alt="Aloo Tikki" class="food-image">
                             <div class="food-name">Aloo Tikki</div>
                         </div>
-                        <div class="food-item">
-                            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Golgappa" class="food-image">
+                        <div class="food-item" onclick="openFoodModal('Golgappa')">
+                            <img src="https://i.ytimg.com/vi/4lBjHXwXnUI/maxresdefault.jpg" alt="Golgappa" class="food-image">
                             <div class="food-name">Golgappa</div>
                         </div>
                     </div>
@@ -480,16 +138,16 @@
                 </div>
                 <div class="place-content">
                     <div class="famous-foods">
-                        <div class="food-item">
-                            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Butter Chicken" class="food-image">
+                        <div class="food-item" onclick="openFoodModal('Butter Chiken')">
+                            <img src="https://www.cookingclassy.com/wp-content/uploads/2021/01/butter-chicken-3.jpg" alt="Butter Chicken" class="food-image">
                             <div class="food-name">Butter Chicken</div>
                         </div>
-                        <div class="food-item">
-                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Naan" class="food-image">
+                        <div class="food-item" onclick="openFoodModal('Naan')">
+                            <img src="https://www.recipetineats.com/wp-content/uploads/2021/02/Naan_1-1.jpg" alt="Naan" class="food-image">
                             <div class="food-name">Naan</div>
                         </div>
-                        <div class="food-item">
-                            <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Lassi" class="food-image">
+                        <div class="food-item" onclick="openFoodModal('Lassi')">
+                            <img src="https://www.spicypunch.com/wp-content/uploads/2019/06/lassi-recipe-1024x683.jpg" alt="Lassi" class="food-image">
                             <div class="food-name">Lassi</div>
                         </div>
                     </div>
@@ -504,16 +162,16 @@
                 </div>
                 <div class="place-content">
                     <div class="famous-foods">
-                        <div class="food-item">
-                            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Chole Bhature" class="food-image">
+                        <div class="food-item" onclick="openFoodModal('Chole Bhature')">
+                            <img src="https://static.vecteezy.com/system/resources/previews/024/058/840/large_2x/delectable-chole-bhature-a-savory-indian-dish-with-steam-rising-against-a-dark-background-ai-generated-free-photo.jpg" alt="Chole Bhature" class="food-image">
                             <div class="food-name">Chole Bhature</div>
                         </div>
-                        <div class="food-item">
-                            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Rajma Chawal" class="food-image">
+                        <div class="food-item" onclick="openFoodModal('Rajma Chawal')">
+                            <img src="https://shwetainthekitchen.com/wp-content/uploads/2020/12/Rajma-Chawal.jpg" alt="Rajma Chawal" class="food-image">
                             <div class="food-name">Rajma Chawal</div>
                         </div>
-                        <div class="food-item">
-                            <img src="https://images.unsplash.com/photo-1628294895950-9805252327bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Pav Bhaji" class="food-image">
+                        <div class="food-item" onclick="openFoodModal('Pav Bhaji')">
+                            <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Instant-Pot-Mumbai-Pav-Bhaji-Recipe.jpg" alt="Pav Bhaji" class="food-image">
                             <div class="food-name">Pav Bhaji</div>
                         </div>
                     </div>
@@ -532,8 +190,8 @@
                 details: [
                     { icon: '🏪', label: 'Best Place', value: 'Pt. Gaya Prasad Shiv Charan' },
                     { icon: '💰', label: 'Price Range', value: '₹30 - ₹80' },
-                    { icon: '🕒', label: 'Best Time', value: '8 AM - 11 AM' },
-                    { icon: '🌶️', label: 'Spice Level', value: 'Medium' }
+                    // { icon: '🕒', label: 'Best Time', value: '8 AM - 11 AM' },
+                    // { icon: '🌶️', label: 'Spice Level', value: 'Medium' }
                 ]
             },
             'jalebi': {
@@ -543,8 +201,8 @@
                 details: [
                     { icon: '🏪', label: 'Best Place', value: 'Old Famous Jalebi Wala' },
                     { icon: '💰', label: 'Price Range', value: '₹40 - ₹100/kg' },
-                    { icon: '🕒', label: 'Best Time', value: '9 AM - 6 PM' },
-                    { icon: '🍯', label: 'Sweetness', value: 'Very Sweet' }
+                    // { icon: '🕒', label: 'Best Time', value: '9 AM - 6 PM' },
+                    // { icon: '🍯', label: 'Sweetness', value: 'Very Sweet' }
                 ]
             },
             'samosa': {
@@ -554,8 +212,8 @@
                 details: [
                     { icon: '🏪', label: 'Best Place', value: 'Jung Bahadur Kachori Wala' },
                     { icon: '💰', label: 'Price Range', value: '₹10 - ₹25' },
-                    { icon: '🕒', label: 'Best Time', value: '4 PM - 8 PM' },
-                    { icon: '🌶️', label: 'Spice Level', value: 'Medium to Hot' }
+                    // { icon: '🕒', label: 'Best Time', value: '4 PM - 8 PM' },
+                    // { icon: '🌶️', label: 'Spice Level', value: 'Medium to Hot' }
                 ]
             },
             'momos': {
@@ -565,8 +223,8 @@
                 details: [
                     { icon: '🏪', label: 'Best Place', value: 'Majnu Ka Tilla' },
                     { icon: '💰', label: 'Price Range', value: '₹50 - ₹120' },
-                    { icon: '🕒', label: 'Best Time', value: '5 PM - 10 PM' },
-                    { icon: '🌶️', label: 'Spice Level', value: 'Medium to Hot' }
+                    // { icon: '🕒', label: 'Best Time', value: '5 PM - 10 PM' },
+                    // { icon: '🌶️', label: 'Spice Level', value: 'Medium to Hot' }
                 ]
             },
             'kathi-rolls': {
@@ -576,8 +234,8 @@
                 details: [
                     { icon: '🏪', label: 'Best Place', value: 'Nizam\'s Kathi Kabab' },
                     { icon: '💰', label: 'Price Range', value: '₹80 - ₹150' },
-                    { icon: '🕒', label: 'Best Time', value: '6 PM - 11 PM' },
-                    { icon: '🌶️', label: 'Spice Level', value: 'Medium' }
+                    // { icon: '🕒', label: 'Best Time', value: '6 PM - 11 PM' },
+                    // { icon: '🌶️', label: 'Spice Level', value: 'Medium' }
                 ]
             },
             'kulfi': {
@@ -587,19 +245,19 @@
                 details: [
                     { icon: '🏪', label: 'Best Place', value: 'Kuremal Mohan Lal Kulfi' },
                     { icon: '💰', label: 'Price Range', value: '₹30 - ₹80' },
-                    { icon: '🕒', label: 'Best Time', value: '12 PM - 10 PM' },
-                    { icon: '🥛', label: 'Base', value: 'Pure Milk' }
+                    // { icon: '🕒', label: 'Best Time', value: '12 PM - 10 PM' },
+                    // { icon: '🥛', label: 'Base', value: 'Pure Milk' }
                 ]
             },
             'seekh-kebab': {
                 title: 'Karim\'s Seekh Kebab',
-                image: 'https://cdn.pixabay.com/photo/2018/07/18/19/12/beef-3547078_1280.jpg',
+                image: 'https://cluecoded.com/wp-content/uploads/2024/09/seekh-kabab.jpg',
                 description: 'Succulent minced meat skewers grilled to perfection with aromatic spices. A signature dish from the legendary Karim\'s restaurant established in 1913.',
                 details: [
                     { icon: '🏪', label: 'Best Place', value: 'Karim\'s Jama Masjid' },
                     { icon: '💰', label: 'Price Range', value: '₹120 - ₹200' },
-                    { icon: '🕒', label: 'Best Time', value: '7 PM - 11 PM' },
-                    { icon: '🌶️', label: 'Spice Level', value: 'Medium to Hot' }
+                    // { icon: '🕒', label: 'Best Time', value: '7 PM - 11 PM' },
+                    // { icon: '🌶️', label: 'Spice Level', value: 'Medium to Hot' }
                 ]
             },
             'biryani': {
@@ -609,8 +267,8 @@
                 details: [
                     { icon: '🏪', label: 'Best Place', value: 'Karim\'s & Al Jawahar' },
                     { icon: '💰', label: 'Price Range', value: '₹200 - ₹400' },
-                    { icon: '🕒', label: 'Best Time', value: '12 PM - 3 PM, 7 PM - 11 PM' },
-                    { icon: '🌿', label: 'Specialty', value: 'Dum Cooked' }
+                    // { icon: '🕒', label: 'Best Time', value: '12 PM - 3 PM, 7 PM - 11 PM' },
+                    // { icon: '🌿', label: 'Specialty', value: 'Dum Cooked' }
                 ]
             },
             'nihari': {
@@ -620,21 +278,109 @@
                 details: [
                     { icon: '🏪', label: 'Best Place', value: 'Kallu Nihari' },
                     { icon: '💰', label: 'Price Range', value: '₹150 - ₹300' },
-                    { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
-                    { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
+                    // { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
+                    // { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
                 ]
             },
-            'bhel-puri': {
-                title: 'Tasty Bhel-Puri',
-                image: 'https://www.yummyoyummy.com/wp-content/uploads/2016/09/Bhel-puri2.jpg',
-                description: 'Rich, spicy stew made with tender meat slow-cooked overnight with aromatic spices. Traditionally eaten for breakfast with naan.',
+            'Bhel Puri': {
+                title: 'Tangy Bhel Puri',
+                image: 'https://www.indianveggiedelight.com/wp-content/uploads/2017/03/bhel-puri-featured.jpg',
+                description: 'A light and crunchy chaat made of puffed rice, sev, onions, and chutneys. It’s tangy, spicy, and perfect for snacking on the go.',
                 details: [
                     { icon: '🏪', label: 'Best Place', value: 'Kallu Nihari' },
                     { icon: '💰', label: 'Price Range', value: '₹150 - ₹300' },
-                    { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
-                    { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
+                    // { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
+                    // { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
                 ]
-            }
+            },
+            'Aloo Tikki': {
+                title: 'Crispy Aloo Tikki',
+                image: 'https://cdn.cdnparenting.com/articles/2020/01/26120549/Aloo-tikki-recipe.jpg',
+                description: 'Golden fried potato patties seasoned with spices and herbs. Served with sweet curd and chutneys, it’s a crowd favorite in Delhi markets.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Kallu Nihari' },
+                    { icon: '💰', label: 'Price Range', value: '₹150 - ₹300' },
+                    // { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
+                    // { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
+                ]
+            },
+            'Golgappa': {
+                title: 'Spicy Delhi Golgappe',
+                image: 'https://i.ytimg.com/vi/4lBjHXwXnUI/maxresdefault.jpg',
+                description: 'Crispy hollow puris filled with tangy flavored water, potatoes, and chickpeas. A refreshing explosion of flavors loved by every Delhiite.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Kallu Nihari' },
+                    { icon: '💰', label: 'Price Range', value: '₹150 - ₹300' },
+                    // { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
+                    // { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
+                ]
+            },
+            'Butter Chiken': {
+                title: 'Creamy Butter Chicken',
+                image: 'https://www.cookingclassy.com/wp-content/uploads/2021/01/butter-chicken-3.jpg',
+                description: 'Juicy chicken cooked in a rich, buttery tomato gravy. Born in Delhi, this dish is now world-famous and best enjoyed with naan.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Kallu Nihari' },
+                    { icon: '💰', label: 'Price Range', value: '₹150 - ₹300' },
+                    // { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
+                    // { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
+                ]
+            },
+            'Naan': {
+                title: 'Soft Butter Naan',
+                image: 'https://www.recipetineats.com/wp-content/uploads/2021/02/Naan_1-1.jpg',
+                description: 'Fluffy, tandoor-baked bread brushed with butter. The perfect companion for gravies, curries, and Delhi’s rich Mughlai dishes.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Kallu Nihari' },
+                    { icon: '💰', label: 'Price Range', value: '₹150 - ₹300' },
+                    // { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
+                    // { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
+                ]
+            },
+            'Lassi': {
+                title: 'Refreshing Punjabi Lassi',
+                image: 'https://www.spicypunch.com/wp-content/uploads/2019/06/lassi-recipe-1024x683.jpg',
+                description: 'A chilled yogurt-based drink, either sweet or salted. Thick, creamy, and refreshing — a perfect cooler for Delhi’s summers.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Kallu Nihari' },
+                    { icon: '💰', label: 'Price Range', value: '₹150 - ₹300' },
+                    // { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
+                    // { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
+                ]
+            },
+            'Chole Bhature': {
+                title: 'Fluffy Chole Bhature',
+                image: 'https://static.vecteezy.com/system/resources/previews/024/058/840/large_2x/delectable-chole-bhature-a-savory-indian-dish-with-steam-rising-against-a-dark-background-ai-generated-free-photo.jpg',
+                description: 'Spicy chickpeas served with huge, fluffy deep-fried bread. A filling and indulgent dish that’s a must-have in Delhi’s street food culture.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Kallu Nihari' },
+                    { icon: '💰', label: 'Price Range', value: '₹150 - ₹300' },
+                    // { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
+                    // { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
+                ]
+            },
+            'Rajma Chawal': {
+                title: 'Comforting Rajma Chawal',
+                image: 'https://shwetainthekitchen.com/wp-content/uploads/2020/12/Rajma-Chawal.jpg',
+                description: 'Red kidney bean curry slow-cooked with spices and served with rice. A wholesome, homely dish that Delhiites love on Sunday.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Kallu Nihari' },
+                    { icon: '💰', label: 'Price Range', value: '₹150 - ₹300' },
+                    // { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
+                    // { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
+                ]
+            },
+            'Pav Bhaji': {
+                title: 'Buttery Pav Bhaji',
+                image: 'https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Instant-Pot-Mumbai-Pav-Bhaji-Recipe.jpg',
+                description: 'A spicy mashed vegetable curry loaded with butter, served with soft pav buns. A Mumbai favorite that has become a Delhi street hit.',
+                details: [
+                    { icon: '🏪', label: 'Best Place', value: 'Kallu Nihari' },
+                    { icon: '💰', label: 'Price Range', value: '₹150 - ₹300' },
+                    // { icon: '🕒', label: 'Best Time', value: '6 AM - 11 AM' },
+                    // { icon: '🔥', label: 'Cooking', value: 'Overnight Slow Cook' }
+                ]
+            },
         };
 
         function openFoodModal(foodId) {
